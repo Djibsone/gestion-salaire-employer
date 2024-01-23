@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\ConfigHelper;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -210,7 +211,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
+        'AppNameGetter' => ConfigHelper::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
     ])->toArray(),
 

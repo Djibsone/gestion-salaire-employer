@@ -3,11 +3,11 @@
     <div class="sidepanel-inner d-flex flex-column">
         <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
         <div class="app-branding">
-            {{-- <a class="app-logo" href="index.html">
+            <a class="app-logo" href="index.html">
                 <img src="https://ui-avatars.com/api/?name={{ AppNameGetter::getAppName() ? AppNameGetter::getAppName() : 'TP APP' }}"
                     alt="user profile" class="logo-icon me-2">
                 {{ AppNameGetter::getAppName() ? AppNameGetter::getAppName() : 'TP APP' }}
-            </a> --}}
+            </a>
         </div>
         <!--//app-branding-->
 
@@ -73,12 +73,12 @@
                     <!--//nav-link-->
                     <div id="submenu-2" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
                         <ul class="submenu-list list-unstyled">
-                            {{-- <li class="submenu-item"><a class="submenu-link"
-                                    href="{{ route('administrateurs') }}">Liste</a>
+                            <li class="submenu-item"><a class="submenu-link"
+                                    href="{{ route('administrateur.index') }}">Liste</a>
                             </li>
                             <li class="submenu-item"><a class="submenu-link"
-                                    href="{{ route('administrateurs.create') }}">Ajout</a>
-                            </li> --}}
+                                    href="{{ route('administrateur.create') }}">Ajout</a>
+                            </li>
 
                         </ul>
                     </div>
@@ -110,12 +110,12 @@
                     <!--//nav-link-->
                     <div id="submenu-1" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
                         <ul class="submenu-list list-unstyled">
-                            {{-- <li class="submenu-item"><a class="submenu-link"
+                            <li class="submenu-item"><a class="submenu-link"
                                     href="{{ route('departement.index') }}">Liste</a>
                             </li>
                             <li class="submenu-item"><a class="submenu-link"
                                     href="{{ route('departement.create') }}">Ajout</a>
-                            </li> --}}
+                            </li>
 
                         </ul>
                     </div>
@@ -171,7 +171,7 @@
                 <ul class="app-menu footer-menu list-unstyled">
                     <li class="nav-item">
                         <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                        {{-- <a class="nav-link" href="{{ route('configurations') }}">
+                        <a class="nav-link" href="{{ route('configuration.index') }}">
                             <span class="nav-icon">
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear"
                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -182,7 +182,7 @@
                                 </svg>
                             </span>
                             <span class="nav-link-text">Configurations</span>
-                        </a> --}}
+                        </a>
                         <!--//nav-link-->
                     </li>
 

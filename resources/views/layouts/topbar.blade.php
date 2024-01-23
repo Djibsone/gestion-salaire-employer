@@ -172,7 +172,7 @@
                             href="#" role="button" aria-expanded="false">
 
                             <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}"
-                                alt="{{ Auth::user()->name }}" style="border-radius:50%"></a>
+                                alt="user profile" style="border-radius:50%"></a>
 
                         <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
                             <li><a class="dropdown-item" href="account.html">Account</a></li>

@@ -48,17 +48,17 @@
                                         <circle cx="8" cy="4.5" r="1" />
                                     </svg></span></label>
                             <input type="text" class="form-control" id="setting-input-1" placeholder="Entrer le nom"
-                                name="lastname" value="{{ $employer->lastname }}">
+                                name="nom" value="{{ $employer->nom }}" required>
 
 
-                            @error('lastname')
+                            @error('nom')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="setting-input-2" class="form-label">Prenom</label>
-                            <input type="text" class="form-control" id="setting-input-2" name="firstname"
-                                placeholder="Entrer le prenom" value="{{ $employer->firstname }}">
+                            <input type="text" class="form-control" id="setting-input-2" name="prenom"
+                                placeholder="Entrer le prenom" value="{{ $employer->prenom }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="setting-input-3" class="form-label">Email</label>

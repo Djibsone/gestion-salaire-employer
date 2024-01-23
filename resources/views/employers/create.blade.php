@@ -12,7 +12,7 @@
             <div class="app-card app-card-settings shadow-sm p-4">
 
                 <div class="app-card-body">
-                    <form class="settings-form" method="POST" action="{{ route('employe.store') }}">
+                    <form class="settings-form" method="POST" action="{{ route('employer.store') }}">
                         @csrf
                         @method('POST')
 
@@ -47,17 +47,22 @@
                                         <circle cx="8" cy="4.5" r="1" />
                                     </svg></span></label>
                             <input type="text" class="form-control" id="setting-input-1" placeholder="Entrer le nom"
-                                name="nom" value="{{ old('nom') }}" required>
+                                name="lastname" value="{{ old('lastname') }}">
 
 
-                            @error('nom')
+                            @error('lastname')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="setting-input-2" class="form-label">Prenom</label>
-                            <input type="text" class="form-control" id="setting-input-2" name="prenom"
-                                placeholder="Entrer le prenom" value="{{ old('prenom') }}" required>
+                            <input type="text" class="form-control" id="setting-input-2" name="firstname"
+                                placeholder="Entrer le prenom" value="{{ old('firstname') }}">
+
+
+                            @error('firstname')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="setting-input-3" class="form-label">Email</label>
@@ -76,8 +81,8 @@
 
                                 
                             @error('contact')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="setting-input-3" class="form-label">Montant à journalier</label>
