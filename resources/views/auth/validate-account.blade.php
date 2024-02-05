@@ -5,6 +5,13 @@
     <form method="POST" action="{{ route('submitDefineAccess', $email) }}">
         @csrf
 
+        <!-- Code -->
+        <div>
+            <x-input-label for="code" :value="__('Code')" />
+            <x-text-input id="code" class="block mt-1 w-full" type="text" name="code" value="{{ $code }}" required autofocus autocomplete="" />
+            <x-input-error :messages="$errors->get('code')" class="mt-2" />
+        </div>
+
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />

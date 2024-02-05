@@ -171,7 +171,7 @@
                         <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown"
                             href="#" role="button" aria-expanded="false">
 
-                            <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}"
+                            <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name ? Auth::user()->name : 'User connected'}}"
                                 alt="user profile" style="border-radius:50%"></a>
 
                         <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ConfigurationController;
 use App\Http\Controllers\DepartementController;
 use App\Http\Controllers\EmployerController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Configuration;
 use App\Models\Departement;
@@ -96,9 +97,13 @@ Route::prefix('administrateurs')->name('administrateur.')->controller(AdminContr
     Route::get('/', 'index')->name('index');
     Route::get('/create', 'create')->name('create');
     Route::post('/create', 'store')->name('store');
-    Route::get('/edit/{administrateur}', 'edit')->name('edit');
-    Route::put('/edit/{administrateur}', 'update')->name('update');
-    Route::get('/{administrateur}', 'delete')->name('delete');
+    Route::get('/{user}', 'delete')->name('delete');
+});
+
+Route::prefix('payments')->name('payment.')->controller(PaymentController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/download/{payment}', 'download')->name('download');
+    Route::get('/make', 'initPayment')->name('init');
 });
 
 Route::prefix('/validate-account/{email}', [AdminController::class, 'defineAccess']);

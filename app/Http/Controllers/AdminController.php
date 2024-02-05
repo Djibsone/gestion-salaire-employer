@@ -8,6 +8,7 @@ use App\Models\ResetCodePassword;
 use App\Models\User;
 use App\Notifications\SendToAdminAfterRegistrationNotification;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 
@@ -16,7 +17,7 @@ class AdminController extends Controller
     public function index ()
     {
         $admins = User::paginate(5);
-        return view('admins.create', [
+        return view('admins.index', [
             'admins' => $admins
         ]);
     }
@@ -65,8 +66,15 @@ class AdminController extends Controller
 
     public function delete (User $user)
     {
-        $user->delete();
-        return to_route('administrateur.index')->with('success_message', 'L\'admin supprimé.');
+        $connetedAdminId = Auth::user()->id;
+
+        if ($connetedAdminId !== $user->id) {
+            $user->delete();
+            return to_route('administrateur.index')->with('success_message', 'L\'admin supprimé.');
+        }
+        else {
+            return to_route('administrateur.index')->with('error_message', 'Vous ne pouvez pas supprimer votre compte administrateur.');
+        }
 
     }
 
@@ -89,6 +97,14 @@ class AdminController extends Controller
             $user->password = Hash::make($request->password);
             $user->email_verified_at = Carbon::now();
             $user->update();
+
+            if ($user) {
+                $existingCode = ResetCodePassword::where('email', $user->email)->count();
+           
+                if ($existingCode >= 1) {
+                    ResetCodePassword::where('email', $user->email)->delete();
+                }
+            }
 
             return to_route('login')->with('success_message', 'Vos accès ont été correctement définis.');
         }
